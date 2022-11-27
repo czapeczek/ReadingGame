@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "title": "MA TA PA",
+    "steps": [
+      "MA",
+      "MY",
+      "MU",
+      "MO"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "CZY SZY DŻY",
+    "steps": [
+      "FA",
+      "FE",
+      "FI",
+      "FO"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "SZMO, CHRZO, WSZO",
+    "steps": [
+      "KA",
+      "KO",
+      "KI",
+      "KE"
+    ]
+  }
+]
