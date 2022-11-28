@@ -33,3 +33,9 @@
     </div>
 <!--    <Navigation />-->
 </div>
+    <div class="card w-96 bg-primary text-primary-content rounded-3xl">
+        <div class="card-body">
+            <h1 class="card-title text-8xl">Card title!</h1>
+       </div>
+    </div>
+</div>
