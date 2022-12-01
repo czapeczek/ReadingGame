@@ -1,24 +1,46 @@
 <script>
     // import Navigation from "./Navigation.svelte";
     import classes from '../data/SylablesClasses.json'
+    import conf from  '../data/AppConfiguration.json'
+    export let location
+    export let navigate
 
-    let current_step = 0;
+    let number_of_classes = classes.length
+    let current_step = 0
+    let repeated_count = 0
+    let seconds_from_start = 0
 
-    export let id;
-    $: console.log(current_step)
-    $: class_item = classes.find(p => p.id == id);
-    $: console.log(id)
+    export let id
+    $: class_item = classes.find(p => p.id == id)
 
+    function increment_step() {
+        if (conf.repeat.repeat_based === true) {
+            current_step++
+            if(current_step === class_item.steps.length) {
+                current_step = 0
+                repeated_count++
+            }
+            if (conf.repeat.repeats == repeated_count) {
+                repeated_count = 0
+                let new_id = Number(id) + 1
+                console.log(new_id)
+                if (new_id > number_of_classes) {
+                    console.log('here')
+                    navigate('/')
 
-    function pass() {
-        current_step++
-        if(current_step === class_item.steps.length) {
-            current_step = 0
+                } else {
+                    navigate('/class/' + new_id)
+                }
+            }
         }
     }
 
+    function pass() {
+        increment_step()
+    }
+
     function repel() {
-        current_step++
+        increment_step()
         if(current_step === class_item.steps.length) {
             current_step = 0
         }
@@ -29,7 +51,7 @@
 
     <div class="card w-96 bg-primary text-primary-content rounded-3xl">
         <div class="card-body">
-            <p class="card-title text-8xl text-right">{class_item.steps[current_step]}</p>
+            <p class="card-title text-8xl self-center">{class_item.steps[current_step]}</p>
        </div>
     </div>
 <!--    <Navigation />-->

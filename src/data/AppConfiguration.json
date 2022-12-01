@@ -1,0 +1,8 @@
+{
+  "repeat": {
+    "time_based": false,
+    "repeat_based": true,
+    "time_limit_in_seconds": 300,
+    "repeats": 4
+  }
+}
