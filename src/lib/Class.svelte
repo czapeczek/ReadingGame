@@ -2,6 +2,8 @@
     // import Navigation from "./Navigation.svelte";
     import classes from '../data/SylablesClasses.json'
     import conf from  '../data/AppConfiguration.json'
+    import { results } from '../data/ResultsStore.js'
+
     export let location
     export let navigate
 
@@ -9,6 +11,14 @@
     let current_step = 0
     let repeated_count = 0
     let seconds_from_start = 0
+
+    const increment = () => {
+        $results.good = $results.good+1
+    }
+
+    const decrement = () => {
+        $results.bad = $results.bad+1
+    }
 
     export let id
     $: class_item = classes.find(p => p.id == id)
@@ -36,14 +46,13 @@
     }
 
     function pass() {
+        increment()
         increment_step()
     }
 
     function repel() {
+        decrement()
         increment_step()
-        if(current_step === class_item.steps.length) {
-            current_step = 0
-        }
     }
 
 

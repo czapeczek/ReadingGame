@@ -1,8 +1,10 @@
 <script>
+  import { results } from './data/ResultsStore.js'
   import {Route, Router} from 'svelte-navigator'
   import Class from "./lib/Class.svelte";
   import MainScreen from "./lib/MainScreen.svelte";
 
+  $:console.log($results)
 
 </script>
 
